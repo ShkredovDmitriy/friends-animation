@@ -1,21 +1,25 @@
 if (document.querySelector(".friend-avatar__path")) {
   gsap.registerPlugin(MotionPathPlugin);
-  // gsap.registerPlugin(MotionPathHelper);
 
-  const image01 = ".friend-avatar__item--01";
-  const image02 = ".friend-avatar__item--02";
-  const image03 = ".friend-avatar__item--03";
-  const image04 = ".friend-avatar__item--04";
-  const image05 = ".friend-avatar__item--05";
-  const image06 = ".friend-avatar__item--06";
-  const image07 = ".friend-avatar__item--07";
+  const container = ".friend-avatar__block";
+  const avatarItem01 = ".friend-avatar__item--01";
+  const avatarItem02 = ".friend-avatar__item--02";
+  const avatarItem03 = ".friend-avatar__item--03";
+  const avatarItem04 = ".friend-avatar__item--04";
+  const avatarItem05 = ".friend-avatar__item--05";
+  const avatarItem06 = ".friend-avatar__item--06";
+  const avatarItem07 = ".friend-avatar__item--07";
 
-  const duration = 40; // seconds
+  const pTop = "position-top";
+  const pBottom = "position-bottom";
+  const pLeft = "position-left";
+  const pRight = "position-right";
+
+  const duration = 40; // duration
   const delay = (duration + duration / 7) * -1;
 
-  setTimeout(() => {
-    document.querySelector(".friend-avatar__block").classList.add("visible");
-  }, 500);
+  setTimeout(() => qs(container).classList.add("visible"), 500);
+
   let tl = gsap.timeline({});
 
   function addAvatarToTimeline(avatar, duration, delay, callback) {
@@ -35,13 +39,13 @@ if (document.querySelector(".friend-avatar__path")) {
     });
   }
 
-  addAvatarToTimeline(image01, duration, 0, callback01);
-  addAvatarToTimeline(image02, duration, delay, callback02);
-  addAvatarToTimeline(image03, duration, delay, callback03);
-  addAvatarToTimeline(image04, duration, delay, callback04);
-  addAvatarToTimeline(image05, duration, delay, callback05);
-  addAvatarToTimeline(image06, duration, delay, callback06);
-  addAvatarToTimeline(image07, duration, delay, callback07);
+  addAvatarToTimeline(avatarItem01, duration, 0, callback01);
+  addAvatarToTimeline(avatarItem02, duration, delay, callback02);
+  addAvatarToTimeline(avatarItem03, duration, delay, callback03);
+  addAvatarToTimeline(avatarItem04, duration, delay, callback04);
+  addAvatarToTimeline(avatarItem05, duration, delay, callback05);
+  addAvatarToTimeline(avatarItem06, duration, delay, callback06);
+  addAvatarToTimeline(avatarItem07, duration, delay, callback07);
 
   let checkedItem = "";
 
@@ -49,135 +53,90 @@ if (document.querySelector(".friend-avatar__path")) {
     if (checkedItem != itemId) {
       checkedItem = itemId;
       tl.pause();
-      document.querySelectorAll(".friend-avatar__item").forEach(item => {
-        item.classList.remove("checked");
-      });
-      document.querySelector(itemId).classList.add("checked");
+      qsa(".friend-avatar__item").forEach(item =>
+        item.classList.remove("checked")
+      );
+      qs(itemId).classList.add("checked");
     } else {
       checkedItem = "";
       tl.play();
-      document.querySelectorAll(".friend-avatar__item").forEach(item => {
-        item.classList.remove("checked");
-      });
+      qsa(".friend-avatar__item").forEach(item =>
+        item.classList.remove("checked")
+      );
     }
   }
 
-  document
-    .querySelector(image01)
-    .addEventListener("click", () => clickOnItem(image01));
-
-  document
-    .querySelector(image02)
-    .addEventListener("click", () => clickOnItem(image02));
-
-  document
-    .querySelector(image03)
-    .addEventListener("click", () => clickOnItem(image03));
-
-  document
-    .querySelector(image04)
-    .addEventListener("click", () => clickOnItem(image04));
-
-  document
-    .querySelector(image05)
-    .addEventListener("click", () => clickOnItem(image05));
-
-  document
-    .querySelector(image06)
-    .addEventListener("click", () => clickOnItem(image06));
-
-  document
-    .querySelector(image07)
-    .addEventListener("click", () => clickOnItem(image07));
+  qs(avatarItem01).addEventListener("click", () => clickOnItem(avatarItem01));
+  qs(avatarItem02).addEventListener("click", () => clickOnItem(avatarItem02));
+  qs(avatarItem03).addEventListener("click", () => clickOnItem(avatarItem03));
+  qs(avatarItem04).addEventListener("click", () => clickOnItem(avatarItem04));
+  qs(avatarItem05).addEventListener("click", () => clickOnItem(avatarItem05));
+  qs(avatarItem06).addEventListener("click", () => clickOnItem(avatarItem06));
+  qs(avatarItem07).addEventListener("click", () => clickOnItem(avatarItem07));
 
   function callback01() {
-    const avatar = document.querySelector(".friend-avatar__item--01");
-    const progress = Math.floor(this.ratio * 100);
-    checkPosition(avatar, progress);
-    // console.log(progress);
+    checkPosition(avatarItem01, this.ratio);
   }
 
   function callback02() {
-    const avatar = document.querySelector(".friend-avatar__item--02");
-    const progress = Math.floor(this.ratio * 100);
-    checkPosition(avatar, progress);
-    // console.log(progress);
+    checkPosition(avatarItem02, this.ratio);
   }
 
   function callback03() {
-    const avatar = document.querySelector(".friend-avatar__item--03");
-    const progress = Math.floor(this.ratio * 100);
-    checkPosition(avatar, progress);
-    // console.log(progress);
+    checkPosition(avatarItem03, this.ratio);
   }
 
   function callback04() {
-    const avatar = document.querySelector(".friend-avatar__item--04");
-    const progress = Math.floor(this.ratio * 100);
-    checkPosition(avatar, progress);
-    // console.log(progress);
+    checkPosition(avatarItem04, this.ratio);
   }
 
   function callback05() {
-    const avatar = document.querySelector(".friend-avatar__item--05");
-    const progress = Math.floor(this.ratio * 100);
-    checkPosition(avatar, progress);
-    // console.log(progress);
+    checkPosition(avatarItem05, this.ratio);
   }
 
   function callback06() {
-    const avatar = document.querySelector(".friend-avatar__item--06");
-    const progress = Math.floor(this.ratio * 100);
-    checkPosition(avatar, progress);
-    // console.log(progress);
+    checkPosition(avatarItem06, this.ratio);
   }
 
   function callback07() {
-    const avatar = document.querySelector(".friend-avatar__item--07");
-    const progress = Math.floor(this.ratio * 100);
-    checkPosition(avatar, progress);
-    // console.log(progress);
+    checkPosition(avatarItem07, this.ratio);
   }
 
   // HELPERS
-  function checkPosition(avatar, progress) {
-    if (progress > 80) positionRight(avatar);
-    else if (progress > 49) positionTop(avatar);
-    else if (progress > 30) positionLeft(avatar);
-    else if (progress > 0) changePosition(avatar, "bottom");
+  function qs(selector) {
+    return document.querySelector(selector);
+  }
+
+  function qsa(selector) {
+    return document.querySelectorAll(selector);
+  }
+
+  function checkPosition(avatar, ratio) {
+    const item = qs(avatar);
+    const progress = Math.floor(ratio * 100);
+    if (progress > 82) positionLeft(item);
+    else if (progress > 48) positionBottom(item);
+    else if (progress > 31) positionRight(item);
+    else if (progress > 0) positionTop(item);
   }
 
   function positionRight(avatar) {
-    avatar.classList.remove("position-bottom", "position-left", "position-top");
-    avatar.classList.add("position-right");
+    avatar.classList.remove(pBottom, pLeft, pTop);
+    avatar.classList.add(pRight);
   }
 
   function positionTop(avatar) {
-    avatar.classList.remove(
-      "position-bottom",
-      "position-left",
-      "position-right"
-    );
-    avatar.classList.add("position-top");
+    avatar.classList.remove(pBottom, pLeft, pRight);
+    avatar.classList.add(pTop);
   }
 
   function positionLeft(avatar) {
-    avatar.classList.remove(
-      "position-bottom",
-      "position-top",
-      "position-right"
-    );
-    avatar.classList.add("position-left");
+    avatar.classList.remove(pBottom, pTop, pRight);
+    avatar.classList.add(pLeft);
   }
 
-  function changePosition(avatar, position) {
-    if (position === "bottom") {
-      avatar.classList.remove(
-        "position-left",
-        "position-top",
-        "position-right"
-      );
-      avatar.classList.add("position-bottom");
-    }
+  function positionBottom(avatar) {
+    avatar.classList.remove(pLeft, pTop, pRight);
+    avatar.classList.add(pBottom);
   }
 }

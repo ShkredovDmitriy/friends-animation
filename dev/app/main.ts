@@ -1,20 +1,3 @@
 import "../common/scss/main.scss";
 
-// require("./modules/autocomplate/autocomplate");
-// require("./modules/mobileMenu/mobileMenu");
-// require("./modules/login/login");
-// require("./modules/registration/registration");
-// require("./modules/recovery/recovery");
-// require("./modules/confirm/confirm");
-// require("./modules/hand/hand");
-// require("./modules/winners/winners");
-// require("./modules/feedback/feedback");
 require("./modules/animation/animation");
-// require("./modules/fullpagescroll/fullpagescroll");
-// require("./modules/pixels/pixels");
-// require("./modules/perfectScroll/perfectScroll");
-// require("./modules/accordion/accordion");
-// require("./modules/step-animation/step-animation");
-// require("./modules/coockiesBar/coockiesBar");
-// require("./modules/captcha/captchaResize");
-// require("./modules/captcha/captchaLoad");
