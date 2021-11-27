@@ -125,8 +125,7 @@ const commonProd = merge([
   pug(),
   images(),
   fonts(),
-  babel(),
-  favicon()
+  babel()
 ]);
 
 module.exports = function(env, argv) {
