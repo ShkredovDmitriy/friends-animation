@@ -1,0 +1,19 @@
+.form-link {
+  margin: 1rem;
+  width: 100%;
+  max-width: 45.9375rem;
+}
+
+.form-link__title {
+  font-family: $font-gotham-bold;
+  font-size: 1.75rem;
+  line-height: 1;
+  text-align: center;
+  color: $color-black-2;
+}
+
+@include media-mobile {
+  .form-link__title {
+    font-size: 1.25rem;
+  }
+}

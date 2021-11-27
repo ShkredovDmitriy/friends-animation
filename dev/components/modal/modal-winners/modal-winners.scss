@@ -1,0 +1,30 @@
+.modal-winners {
+  .modal-dialog {
+    max-width: 50rem;
+  }
+}
+
+.modal-winners__scrollbar-container {
+  margin-top: 1.875rem;
+  height: 29.375rem;
+}
+
+@include media-tablet {
+  .modal-winners {
+    .modal-dialog {
+      max-width: 37.5rem;
+    }
+  }
+}
+
+@include media-mobile {
+  .modal-winners {
+    .modal-dialog {
+      max-width: 18.75rem;
+    }
+  }
+
+  .modal-winners__table-scrollbar {
+    height: 20rem;
+  }
+}

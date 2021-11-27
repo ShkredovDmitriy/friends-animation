@@ -1,0 +1,17 @@
+mixin modal-info()
+  // MODAL INFO
+  .modal.fade.modal-info#modalInfo(tabindex="-1" aria-labelledby="modalInfoLabel" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          .modal-title Title
+          +button-modal-close()
+        .modal-body
+          .modal-info__mess Text
+          .modal-info__ok-button
+            +button-modal-info({
+              variant: "button-form-text",
+              text: "Хорошо"
+            })
+
+

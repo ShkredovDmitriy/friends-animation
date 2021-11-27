@@ -1,0 +1,10 @@
+mixin modal-change(props)
+  // MODAL PASSWORD CHANGE
+  .modal.fade.modal-change#modalChange(tabindex="-1" aria-labelledby="modalChangeLabel" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          .modal-title Смена пароля
+          +button-modal-close()
+        .modal-body
+          +form-change()

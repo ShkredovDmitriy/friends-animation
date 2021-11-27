@@ -1,0 +1,152 @@
+.section-ani__container {
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.friend-avatar__block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  &.visible {
+    opacity: 1;
+    transition: 0.5s;
+  }
+}
+
+.friend-avatar__container {
+}
+
+.friend-avatar__path {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 75%;
+  height: 75%;
+  transform: translate(-50%, -50%);
+}
+
+.friend-avatar__item {
+  position: absolute;
+  width: 7.5rem;
+  height: 7.5rem;
+  background-color: rgb(226, 226, 226);
+  border-radius: 50%;
+  border: 2px solid rgb(226, 226, 226);
+  cursor: pointer;
+  z-index: 1;
+  transition: background-color 0.3s;
+
+  &.checked {
+    border: 2px solid rgb(165, 165, 165);
+
+    .friend-avatar__popover {
+      display: block;
+    }
+  }
+
+  &.position-bottom {
+    .friend-avatar__arrow-container {
+      transform: rotate(0);
+      opacity: 1;
+    }
+
+    .friend-avatar__popover {
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: calc(100% + 1rem);
+    }
+  }
+
+  &.position-left {
+    .friend-avatar__arrow-container {
+      transform: rotate(90deg);
+      opacity: 1;
+    }
+
+    .friend-avatar__popover {
+      top: 50%;
+      left: calc(100% + 1rem);
+      transform: translateY(-50%);
+    }
+  }
+
+  &.position-top {
+    .friend-avatar__arrow-container {
+      transform: rotate(180deg);
+      opacity: 1;
+    }
+
+    .friend-avatar__popover {
+      top: calc(100% + 1rem);
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &.position-right {
+    .friend-avatar__arrow-container {
+      transform: rotate(270deg);
+      opacity: 1;
+    }
+
+    .friend-avatar__popover {
+      top: 50%;
+      right: calc(100% + 1rem);
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.friend-avatar__arrow-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s;
+}
+
+.friend-avatar__arrow {
+  position: absolute;
+  top: 0;
+  left: calc(50% - 0.9375rem);
+  width: 1.875rem;
+  height: 1.875rem;
+  background-color: blue;
+}
+
+.svg-path-friends {
+  width: 100%;
+  height: 100%;
+
+  path {
+    stroke-width: 2;
+    stroke: gray;
+    fill: transparent;
+  }
+}
+
+.friend-avatar__image {
+  position: relative;
+}
+
+.friend-avatar__popover {
+  display: none;
+  position: absolute;
+  width: 9.375rem;
+  border: 2px solid rgb(165, 165, 165);
+  padding: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  color: rgb(165, 165, 165);
+  text-align: center;
+}

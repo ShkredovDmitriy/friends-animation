@@ -1,0 +1,10 @@
+mixin modal-registration(props)
+  // MODAL REGISTRATION
+  .modal.fade.modal-reg#modalReg(tabindex="-1" aria-labelledby="modalRegLabel" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          .modal-title Регистрация
+          +button-modal-close()
+        .modal-body
+          +form-registration()

@@ -1,0 +1,30 @@
+form().form-modal.form-edit#formEdit
+  .form-row
+    .form-col
+      +input-container({
+        id: "formEditName",
+        name: "name",
+        label: "Имя"
+      })
+  .form-row
+    .form-col
+      +input-container({
+        id: "formEditLastName",
+        name: "lastName",
+        label: "Фамилия"
+      })
+  .form-row
+    .form-col
+      +input-container({
+        id: "formEditPhone",
+        name: "Phone",
+        label: "Телефон"
+      })
+  .form-error
+  .form-row
+    .form-col.form-col-center
+      +button({
+        variant: "button-form",
+        type: "submit",
+        text: "Сохранить"
+      })

@@ -1,0 +1,10 @@
+.form-upload {
+}
+
+@include media-mobile {
+  .form-upload {
+    .form-row-margin + .form-row-margin {
+      margin-top: 0.625rem;
+    }
+  }
+}

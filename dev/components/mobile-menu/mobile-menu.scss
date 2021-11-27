@@ -1,0 +1,43 @@
+.mobile-menu {
+  flex-grow: 1;
+  margin-left: 6.25rem;
+}
+
+.mobile-menu__wrapper {
+  display: flex;
+}
+
+@include media-tablet {
+  .mobile-menu {
+    position: fixed;
+    top: -100vh;
+    left: 0;
+    z-index: 200;
+    margin-left: 0;
+    padding-top: 3.25rem;
+    padding-right: 0;
+    padding-bottom: 2rem;
+    padding-left: 5.125rem;
+    width: 100vw;
+    height: 100vh;
+    background-color: $color-blue;
+  }
+
+  .mobile-menu__wrapper {
+    display: block;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+  .molile-menu-opened {
+    overflow: hidden;
+  }
+}
+
+@include media-mobile {
+  .mobile-menu {
+    padding-top: 2.75rem;
+    padding-right: 0;
+    padding-left: 5.25rem;
+  }
+}

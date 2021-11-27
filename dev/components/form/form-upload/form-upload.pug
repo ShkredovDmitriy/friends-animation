@@ -1,0 +1,47 @@
+form().form-modal.form-upload#formUpload
+
+  +file-uploader({
+    id: "formUploadFile1",
+    name: "file1",
+    variant: "file-uploader-1"
+  })
+
+  +file-uploader({
+    id: "formUploadFile2",
+    name: "file2",
+    variant: "file-uploader-2"
+  })
+
+  +file-uploader({
+    id: "formUploadFile3",
+    name: "file3",
+    variant: "file-uploader-3"
+  })
+
+  +file-uploader({
+    id: "formUploadFile4",
+    name: "file4",
+    variant: "file-uploader-4"
+  })
+
+  +file-uploader({
+    id: "formUploadFile5",
+    name: "file5",
+    variant: "file-uploader-5"
+  })
+  .form-error
+  .form-row-margin
+    .form-col
+      +button({
+        variant: "button-form add-input-type-file",
+        type: "button",
+        text: "Добавить фото"
+      })
+  .form-row-margin
+    .form-col.form-col-center
+      +button({
+        variant: "button-form",
+        type: "submit",
+        text: "Отправить"
+      })
+

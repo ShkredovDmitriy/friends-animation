@@ -1,0 +1,10 @@
+mixin modal-confirm(props)
+  // MODAL EMAIL CONFIRM
+  .modal.fade.modal-confirm#modalConfirm(tabindex="-1" aria-labelledby="modalConfirmLabel" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          .modal-title email не подтвержден
+          +button-modal-close()
+        .modal-body
+          +form-confirm

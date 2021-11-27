@@ -1,0 +1,31 @@
+.scrollable-item {
+  position: fixed !important;
+  top: 5.875rem;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  width: 100%;
+  height: 100vh;
+}
+
+.scrollable-body {
+  overflow: hidden;
+}
+
+.hide-up {
+  transform: translate3d(0, -115%, 0);
+  transition: transform 0.7s;
+
+  /* хак для Safari */
+  transition-delay: 1ms;
+}
+
+.show-up {
+  transform: translate3d(0, 0, 0);
+  transition: transform 0.7s;
+
+  /* хак для Safari */
+  transition-delay: 1ms;
+}

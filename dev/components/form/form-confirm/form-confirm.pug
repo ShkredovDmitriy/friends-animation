@@ -1,0 +1,22 @@
+mixin form-confirm(props)
+  // FORM CONFIRM
+  form().form-modal.form-confirm#formConfirm
+    .form-row
+      .form-login__description После окончания регистрации мы отправили письмо на ваш email. Если по каким либо причинам письмо не пришло, вы можете запросить отправку письма повторно.
+    .form-row.d-none
+      .form-col
+        +input({
+          variant: '',
+          id: "formConfirmEmail",
+          name: "email",
+          placeholder: "Email"
+        })
+    .form-error
+    .form-row
+      .form-col.form-col-center
+        +button({
+          id: "formConfirmButton",
+          variant: "button-form",
+          type: "button",
+          text: "Отправить"
+        })

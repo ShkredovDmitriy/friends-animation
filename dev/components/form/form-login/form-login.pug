@@ -1,0 +1,43 @@
+mixin form-login(props)
+  // FORM LOGIN
+  form().form-modal.form-login#formLogin
+    .form-row
+      .form-col
+        +input({
+          id: "formLoginEmail",
+          name: "email",
+          label: "E-mail",
+          dataRule: "email"
+        })
+    .form-row
+      .form-col
+        +input({
+          id: "formLoginPassw",
+          name: "password",
+          label: "Пароль",
+          dataRule: "password"
+        })
+    .form-row
+      .form-col
+        +button({
+          type: "button",
+          variant: "button-form-text form-login-to-rec",
+          text: "Забыли пароль?"
+        })
+    .form-error
+    .form-row
+      .form-col.form-col-center
+        +button({
+          variant: "button-form",
+          type: "submit",
+          text: "Войти на сайт"
+        })
+    .form-row
+      .form-login__description Если вы первый раз на сайте, вам&nbsp;необходимо
+    .form-row
+      .form-col
+        +button({
+          type: "button",
+          variant: "button-form-text form-login-to-reg",
+          text: "Зарегистрироваться"
+        })

@@ -1,0 +1,36 @@
+.modal-faq {
+  .modal-dialog {
+    max-width: 50rem;
+  }
+}
+
+.modal-faq__scrollbar-container {
+  margin-top: 1.875rem;
+  height: 25rem;
+}
+
+@include media-tablet {
+  .modal-faq {
+    .modal-dialog {
+      max-width: 37.5rem;
+    }
+  }
+
+  .modal-faq__scrollbar-container {
+    margin-top: 1.875rem;
+    height: 25rem;
+  }
+}
+
+@include media-mobile {
+  .modal-faq {
+    .modal-dialog {
+      max-width: 18.75rem;
+    }
+  }
+
+  .modal-faq__scrollbar-container {
+    margin-top: 1.875rem;
+    height: 20rem;
+  }
+}

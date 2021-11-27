@@ -1,0 +1,49 @@
+.filter {
+  margin-top: 1.875rem;
+}
+
+.filter-title {
+  font-family: $font-main-regular;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: $color-black;
+}
+
+.filter__row {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.filter__col {
+  &:nth-child(1) {
+    width: 13.5rem;
+  }
+
+  &:nth-child(2) {
+    padding-left: 1.25rem;
+    width: 100%;
+  }
+}
+
+.filter-week-none,
+.filter-phone-none {
+  display: none;
+}
+
+@include media-mobile {
+  .filter__row {
+    display: block;
+    margin-top: 0.5rem;
+  }
+
+  .filter__col {
+    &:nth-child(1) {
+      width: 100%;
+    }
+
+    &:nth-child(2) {
+      margin-top: 1rem;
+      padding-left: 0;
+    }
+  }
+}

@@ -1,0 +1,12 @@
+mixin modal-winners(props)
+  // MODAL WINNERS
+  .modal.fade.modal-winners#modalWinners(tabindex="-1" aria-labelledby="modalWinnersLabel" aria-hidden="true")
+    .modal-dialog.modal-dialog-centered
+      .modal-content
+        .modal-header
+          .modal-title ПОБЕДИТЕЛИ
+          +button-modal-close()
+        .modal-body
+          +filter()
+          .modal-winners__scrollbar-container.scrollbar-container
+            +table-winners()
