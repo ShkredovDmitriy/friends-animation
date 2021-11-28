@@ -1,6 +1,5 @@
 window.onload = () => {
   if (document.querySelector(".friend-avatar__path")) {
-    gsap.registerPlugin(ScrollTrigger);
     gsap.registerPlugin(MotionPathPlugin);
 
     const container = ".friend-avatar__block";
@@ -23,16 +22,15 @@ window.onload = () => {
 
     let checkedItem = "";
 
-    var options = {
+    let options = {
       root: null,
       rootMargin: "0px",
       threshold: 0.5
     };
 
-    var target = qs(container);
+    let target = qs(container);
 
-    var callback = function(entries, observer) {
-      console.log(entries[0]);
+    let callback = function(entries, observer) {
       let isIntersecting = entries[0].isIntersecting;
       if (isIntersecting && !checkedItem) {
         setTimeout(() => qs(container).classList.add("visible"), 500);
@@ -42,7 +40,7 @@ window.onload = () => {
       }
     };
 
-    var observer = new IntersectionObserver(callback, options);
+    let observer = new IntersectionObserver(callback, options);
 
     observer.observe(target);
 
@@ -61,6 +59,7 @@ window.onload = () => {
           alignOrigin: [0.5, 0.5]
         },
         duration: duration,
+        ease: "elastic",
         delay: delay,
         ease: "linear",
         repeat: -1,
@@ -86,6 +85,7 @@ window.onload = () => {
         setTimeout(() => tl.play(), 500);
       } else {
         tl.pause();
+
         if (checkedItem) {
           qs(checkedItem).classList.remove("popover-showed");
           setTimeout(() => qs(checkedItem).classList.remove("checked"), 10);
