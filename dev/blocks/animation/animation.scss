@@ -1,7 +1,19 @@
+.section-demo {
+  width: 100%;
+  height: 100vh;
+}
+
 .section-talk {
   position: relative;
   width: 100%;
-  height: 56.25vw;
+  height: 100vw;
+  overflow: hidden;
+  background-image: url("./images/path-decoration-mobile.svg");
+  background-position: 0 0;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-top: 1px solid #f1f1f3;
+  border-bottom: 1px solid #f1f1f3;
 }
 
 .friend-avatar__block {
@@ -18,9 +30,6 @@
   }
 }
 
-.friend-avatar__container {
-}
-
 .friend-avatar__path {
   position: absolute;
   top: 0;
@@ -29,193 +38,90 @@
   height: 100%;
 }
 
-.friend-avatar__item {
-  position: absolute;
-  width: 8.375rem;
-  height: 8.375rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: transparent;
-  border-radius: 50%;
-  border: 4px solid transparent;
-  cursor: pointer;
-  z-index: 1;
-  transition: background-color 0.3s;
-
-  &.checked {
-    border: 4px dotted #03aced;
-    z-index: 5;
-
-    .friend-avatar__popover {
-      display: flex;
-    }
-
-    .friend-avatar__arrow {
-      background-image: url("./images/friend-avatar__close.svg");
-    }
-  }
-
-  &.position-bottom {
-    .friend-avatar__arrow-container {
-      transform: rotate(0);
-      opacity: 1;
-    }
-
-    .friend-avatar__popover {
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: calc(100% + 2rem);
-    }
-  }
-
-  &.position-left {
-    .friend-avatar__arrow-container {
-      transform: rotate(90deg);
-      opacity: 1;
-    }
-
-    .friend-avatar__popover {
-      top: 50%;
-      left: calc(100% + 2rem);
-      transform: translateY(-50%);
-    }
-  }
-
-  &.position-top {
-    .friend-avatar__arrow-container {
-      transform: rotate(180deg);
-      opacity: 1;
-    }
-
-    .friend-avatar__popover {
-      top: calc(100% + 2rem);
-      left: 50%;
-      transform: translateX(-50%);
-    }
-  }
-
-  &.position-right {
-    .friend-avatar__arrow-container {
-      transform: rotate(270deg);
-      opacity: 1;
-    }
-
-    .friend-avatar__popover {
-      top: 50%;
-      right: calc(100% + 2rem);
-      transform: translateY(-50%);
-    }
-  }
-}
-
-.friend-avatar__arrow-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  // transition: transform 0.5s;
-}
-
-.friend-avatar__arrow {
-  position: absolute;
-  top: -1.125rem;
-  left: calc(50% - 1.125rem);
-  width: 2.25rem;
-  height: 2.25rem;
-  background-image: url("./images/friend-avatar__arrow.svg");
-  background-size: contain;
-  background-position: 0 0;
-  background-repeat: no-repeat;
-  z-index: 1;
-}
-
 .svg-path-friends {
   display: block;
   width: 100%;
+  height: 100%;
 }
 
-.friend-avatar__image {
-  width: 7.75rem;
-  height: 7.75rem;
-  border-radius: 50%;
-  overflow: hidden;
-  transform: translate3d(0, 0, 0);
-  box-shadow: 0 0.3125rem 0.625rem rgba(0, 0, 0, 0.2);
+@media only screen and (min-width: 768px) {
+  .section-talk {
+    width: 100%;
+    height: 56.25vw;
+    background-image: url("./images/path-decoration-desktop.svg");
+  }
+}
 
-  img {
-    display: block;
+@media only screen and (min-width: 992px) {
+  .section-talk {
+    position: relative;
+    width: 100%;
+    height: 56.25vw;
+  }
+
+  .friend-avatar__block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+      transition: 0.5s;
+    }
+  }
+
+  .friend-avatar__path {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
   }
-}
 
-// POPOVER
-.friend-avatar__popover {
-  display: none;
-  position: absolute;
-  width: 26.625rem;
-  height: 7.25rem;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 6.625rem;
-  padding-right: 1.9375rem;
-  border: 1px solid #eeeeee;
-  border-radius: 3.5rem;
-  background-color: #fff;
-  background-image: url("./images/icon-whatsapp.svg");
-  background-size: 3.4375rem auto;
-  background-position: 1.9375rem 50%;
-  background-repeat: no-repeat;
-  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.05);
-}
-
-.popover-member-info {
-  font-size: 1rem;
-  line-height: 1.25;
-  color: #a9adb6;
-}
-
-.popover-member-link {
-  margin-top: 0.25rem;
-  font-size: 1rem;
-  line-height: 1;
-  color: #00adee;
-}
-
-.popover-member-stars {
-  position: absolute;
-  top: -0.8125rem;
-  left: 6.375rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 6.75rem;
-  height: 1.625rem;
-  border-radius: 0.75rem;
-  border: 1px solid #eeeeee;
-  background-color: #fff;
-
-  img {
-    width: 85px;
-    height: 0.9375rem;
+  .svg-path-friends {
+    display: block;
+    width: 100%;
   }
 }
 
-.popover-member-name {
-  position: absolute;
-  bottom: -0.8125rem;
-  right: 3.125rem;
-  display: flex;
-  align-items: center;
-  height: 1.625rem;
-  padding-left: 0.75rem;
-  padding-right: 0.75rem;
-  border-radius: 0.75rem;
-  border: 1px solid #eeeeee;
-  background-color: #fff;
-  font-size: 0.875rem;
-  line-height: 1;
-  color: #b3b7c0;
+@media only screen and (min-width: 1300px) {
+  .section-talk {
+    position: relative;
+    width: 100%;
+    height: 56.25vw;
+  }
+
+  .friend-avatar__block {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+
+    &.visible {
+      opacity: 1;
+      transition: 0.5s;
+    }
+  }
+
+  .friend-avatar__path {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .svg-path-friends {
+    display: block;
+    width: 100%;
+  }
 }
+
+@import "./item.scss";
+
+@import "./popover.scss";

@@ -1,0 +1,137 @@
+.friend-avatar__popover {
+  display: none;
+  position: absolute;
+  width: 13.75rem;
+  height: 5rem;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 2.5rem;
+  padding-right: 0.625rem;
+  border: 1px solid #eeeeee;
+  border-radius: 2.5rem;
+  background-color: #fff;
+  background-image: url("./images/icon-whatsapp.svg");
+  background-size: 1.625rem auto;
+  background-position: 0.625rem 50%;
+  background-repeat: no-repeat;
+  box-shadow: 0 0.25rem 0.9375rem rgba(0, 0, 0, 0.05);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.popover-member-info {
+  font-size: 12px;
+  line-height: 1.25;
+  color: #a9adb6;
+}
+
+.popover-member-link {
+  margin-top: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: #00adee;
+}
+
+.popover-member-stars {
+  position: absolute;
+  top: -0.8125rem;
+  left: 1.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.75rem;
+  height: 1.625rem;
+  border-radius: 0.75rem;
+  border: 1px solid #eeeeee;
+  background-color: #fff;
+
+  img {
+    width: 85px;
+    height: 0.9375rem;
+  }
+}
+
+.popover-member-name {
+  position: absolute;
+  bottom: -0.8125rem;
+  right: 1.875rem;
+  display: flex;
+  align-items: center;
+  height: 1.625rem;
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  border-radius: 0.75rem;
+  border: 1px solid #eeeeee;
+  background-color: #fff;
+  font-size: 0.875rem;
+  line-height: 1;
+  color: #b3b7c0;
+}
+
+@media only screen and (min-width: 768px) {
+  .friend-avatar__popover {
+    width: 17.5rem;
+    height: 5rem;
+    padding-left: 3.125rem;
+    padding-right: 0.625rem;
+    border-radius: 2.5rem;
+    background-size: 1.875rem auto;
+    background-position: 0.9375rem 50%;
+  }
+
+  .popover-member-stars {
+    left: 6.375rem;
+  }
+
+  .popover-member-name {
+    right: 3.125rem;
+  }
+
+  .popover-member-info {
+    font-size: 0.75rem;
+  }
+
+  .popover-member-link {
+    font-size: 0.75rem;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .friend-avatar__popover {
+    width: 20.625rem;
+    height: 6rem;
+    padding-left: 4.375rem;
+    padding-right: 1.25rem;
+    border-radius: 3rem;
+    background-size: 2.5rem auto;
+    background-position: 1.25rem 50%;
+  }
+
+  .popover-member-info {
+    font-size: 0.875rem;
+  }
+
+  .popover-member-link {
+    font-size: 0.875rem;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .friend-avatar__popover {
+    width: 26.625rem;
+    height: 7.25rem;
+    padding-left: 6.625rem;
+    padding-right: 1.9375rem;
+    border-radius: 3.5rem;
+    background-size: 3.4375rem auto;
+    background-position: 1.9375rem 50%;
+  }
+
+  .popover-member-info {
+    font-size: 1rem;
+  }
+
+  .popover-member-link {
+    font-size: 1rem;
+  }
+}
