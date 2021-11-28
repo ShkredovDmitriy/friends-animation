@@ -34,9 +34,9 @@ window.onload = () => {
       let isIntersecting = entries[0].isIntersecting;
       if (isIntersecting && !checkedItem) {
         setTimeout(() => qs(container).classList.add("visible"), 500);
-        tl.play();
+        slowPlay();
       } else {
-        tl.pause();
+        slowPause();
       }
     };
 
@@ -49,7 +49,7 @@ window.onload = () => {
 
     let tl = gsap.timeline({});
 
-    function addAvatarToTimeline(avatar, duration, delay, callback) {
+    function addAvatarToTimeline(avatar, duration, delay) {
       tl.to(avatar, {
         motionPath: {
           path: "#flyPath",
@@ -63,17 +63,19 @@ window.onload = () => {
         delay: delay,
         ease: "linear",
         repeat: -1,
-        onUpdate: callback
+        onUpdate: function() {
+          checkPosition(avatar, this.ratio);
+        }
       });
     }
 
-    addAvatarToTimeline(avatarItem01, duration, 0, callback01);
-    addAvatarToTimeline(avatarItem02, duration, delay, callback02);
-    addAvatarToTimeline(avatarItem03, duration, delay, callback03);
-    addAvatarToTimeline(avatarItem04, duration, delay, callback04);
-    addAvatarToTimeline(avatarItem05, duration, delay, callback05);
-    addAvatarToTimeline(avatarItem06, duration, delay, callback06);
-    addAvatarToTimeline(avatarItem07, duration, delay, callback07);
+    addAvatarToTimeline(avatarItem01, duration, 0);
+    addAvatarToTimeline(avatarItem02, duration, delay);
+    addAvatarToTimeline(avatarItem03, duration, delay);
+    addAvatarToTimeline(avatarItem04, duration, delay);
+    addAvatarToTimeline(avatarItem05, duration, delay);
+    addAvatarToTimeline(avatarItem06, duration, delay);
+    addAvatarToTimeline(avatarItem07, duration, delay);
 
     tl.pause();
 
@@ -82,10 +84,9 @@ window.onload = () => {
         qs(itemId).classList.remove("popover-showed");
         setTimeout(() => qs(itemId).classList.remove("checked"), 500);
         checkedItem = "";
-        setTimeout(() => tl.play(), 500);
+        slowPlay();
       } else {
-        tl.pause();
-
+        slowPause();
         if (checkedItem) {
           qs(checkedItem).classList.remove("popover-showed");
           setTimeout(() => qs(checkedItem).classList.remove("checked"), 10);
@@ -104,41 +105,27 @@ window.onload = () => {
     qs(avatarItem06).addEventListener("click", () => clickOnItem(avatarItem06));
     qs(avatarItem07).addEventListener("click", () => clickOnItem(avatarItem07));
 
-    function callback01() {
-      checkPosition(avatarItem01, this.ratio);
-    }
-
-    function callback02() {
-      checkPosition(avatarItem02, this.ratio);
-    }
-
-    function callback03() {
-      checkPosition(avatarItem03, this.ratio);
-    }
-
-    function callback04() {
-      checkPosition(avatarItem04, this.ratio);
-    }
-
-    function callback05() {
-      checkPosition(avatarItem05, this.ratio);
-    }
-
-    function callback06() {
-      checkPosition(avatarItem06, this.ratio);
-    }
-
-    function callback07() {
-      checkPosition(avatarItem07, this.ratio);
-    }
-
     // HELPERS
     function qs(selector) {
       return document.querySelector(selector);
     }
 
-    function qsa(selector) {
-      return document.querySelectorAll(selector);
+    function slowPause() {
+      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map(time => {
+        setTimeout(() => {
+          tl.timeScale((10 - time) / 10);
+          if (time === 10) tl.pause();
+        }, time * 50);
+      });
+    }
+
+    function slowPlay() {
+      [2, 3, 4, 5, 6, 7, 8, 9, 10].map(time => {
+        setTimeout(() => {
+          tl.timeScale(time / 10);
+          if (time === 2) tl.play();
+        }, time * 50);
+      });
     }
 
     function checkPosition(avatar, ratio) {
