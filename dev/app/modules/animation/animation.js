@@ -11,6 +11,9 @@ window.onload = () => {
     const avatarItem06 = ".friend-avatar__item--06";
     const avatarItem07 = ".friend-avatar__item--07";
 
+    const friend = "friend-avatar__item";
+    const popover = "friend-avatar__popover";
+
     const pLeft = "position-left";
     const pRight = "position-right";
     const pTop = "position-top";
@@ -25,7 +28,7 @@ window.onload = () => {
     let options = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.5
+      threshold: 0.1
     };
 
     let target = qs(container);
@@ -79,8 +82,12 @@ window.onload = () => {
 
     tl.pause();
 
-    function clickOnItem(itemId) {
-      if (checkedItem === itemId) {
+    function clickOnItem(itemId, event) {
+      if (
+        event.target.classList.contains(popover) ||
+        event.target.parentElement.classList.contains(popover)
+      ) {
+      } else if (checkedItem === itemId) {
         qs(itemId).classList.remove("popover-showed");
         setTimeout(() => qs(itemId).classList.remove("checked"), 500);
         checkedItem = "";
@@ -97,13 +104,46 @@ window.onload = () => {
       }
     }
 
-    qs(avatarItem01).addEventListener("click", () => clickOnItem(avatarItem01));
-    qs(avatarItem02).addEventListener("click", () => clickOnItem(avatarItem02));
-    qs(avatarItem03).addEventListener("click", () => clickOnItem(avatarItem03));
-    qs(avatarItem04).addEventListener("click", () => clickOnItem(avatarItem04));
-    qs(avatarItem05).addEventListener("click", () => clickOnItem(avatarItem05));
-    qs(avatarItem06).addEventListener("click", () => clickOnItem(avatarItem06));
-    qs(avatarItem07).addEventListener("click", () => clickOnItem(avatarItem07));
+    function clickOnBody(event) {
+      if (
+        event.target.classList.contains(friend) ||
+        event.target.parentElement.classList.contains(friend) ||
+        event.target.classList.contains(popover) ||
+        event.target.parentElement.classList.contains(popover)
+      ) {
+      } else if (checkedItem) {
+        qs(checkedItem).classList.remove("popover-showed");
+        setTimeout(() => {
+          qs(checkedItem).classList.remove("checked");
+          checkedItem = "";
+        }, 500);
+        slowPlay();
+      }
+    }
+
+    qs(avatarItem01).addEventListener("click", event =>
+      clickOnItem(avatarItem01, event)
+    );
+    qs(avatarItem02).addEventListener("click", event =>
+      clickOnItem(avatarItem02, event)
+    );
+    qs(avatarItem03).addEventListener("click", event =>
+      clickOnItem(avatarItem03, event)
+    );
+    qs(avatarItem04).addEventListener("click", event =>
+      clickOnItem(avatarItem04, event)
+    );
+    qs(avatarItem05).addEventListener("click", event =>
+      clickOnItem(avatarItem05, event)
+    );
+    qs(avatarItem06).addEventListener("click", event =>
+      clickOnItem(avatarItem06, event)
+    );
+    qs(avatarItem07).addEventListener("click", event =>
+      clickOnItem(avatarItem07, event)
+    );
+
+    document.body.addEventListener("click", event => clickOnBody(event));
 
     // HELPERS
     function qs(selector) {
