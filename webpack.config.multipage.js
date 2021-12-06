@@ -150,7 +150,7 @@ const commonProd = merge([
 
 module.exports = function(env, argv) {
   if (argv.mode === "production") {
-    return merge([commonProd, typescript(), extractCSS(), favicon()]);
+    return merge([commonProd, typescript(), extractCSS()]);
   }
   if (argv.mode === "development") {
     return merge([
