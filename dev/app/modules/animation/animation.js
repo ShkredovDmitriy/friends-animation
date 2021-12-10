@@ -104,23 +104,6 @@ window.onload = () => {
       }
     }
 
-    function clickOnBody(event) {
-      if (
-        event.target.classList.contains(friend) ||
-        event.target.parentElement.classList.contains(friend) ||
-        event.target.classList.contains(popover) ||
-        event.target.parentElement.classList.contains(popover)
-      ) {
-      } else if (checkedItem) {
-        qs(checkedItem).classList.remove("popover-showed");
-        setTimeout(() => {
-          qs(checkedItem).classList.remove("checked");
-          checkedItem = "";
-        }, 500);
-        slowPlay();
-      }
-    }
-
     qs(avatarItem01).addEventListener("click", event =>
       clickOnItem(avatarItem01, event)
     );
@@ -142,8 +125,6 @@ window.onload = () => {
     qs(avatarItem07).addEventListener("click", event =>
       clickOnItem(avatarItem07, event)
     );
-
-    document.body.addEventListener("click", event => clickOnBody(event));
 
     // HELPERS
     function qs(selector) {

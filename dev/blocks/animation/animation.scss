@@ -47,8 +47,8 @@
 @media only screen and (min-width: 768px) {
   .section-talk {
     width: 100%;
-    height: 56.25vw;
-    background-image: url("./images/path-decoration-desktop.svg");
+    height: 69.75vw;
+    background-image: url("./images/path-decoration-tablet.svg");
   }
 
   .friend-avatar__path {
@@ -63,7 +63,7 @@
   .section-talk {
     position: relative;
     width: 100%;
-    height: 56.25vw;
+    height: 69.75vw;
   }
 
   .friend-avatar__block {
@@ -94,11 +94,12 @@
   }
 }
 
-@media only screen and (min-width: 1300px) {
+@media only screen and (min-width: 1400px) {
   .section-talk {
     position: relative;
     width: 100%;
     height: 56.25vw;
+    background-image: url("./images/path-decoration-desktop.svg");
   }
 
   .friend-avatar__block {
